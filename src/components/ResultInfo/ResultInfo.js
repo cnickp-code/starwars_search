@@ -31,7 +31,7 @@ class ResultInfo extends React.Component {
                 </div>
 
                 <div className="button-container">
-                    <NavLink to='/' className="back-button">Go Back</NavLink>
+                    <NavLink to='/search' className="back-button">Go Back</NavLink>
                 </div>
             </>
         )

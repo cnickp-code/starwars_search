@@ -10,8 +10,17 @@ class App extends React.Component {
     super(props);
     this.state = {
       results: [],
-      loading: false
+      loading: false,
+      searchTerm: ''
     }
+  }
+
+  updateSearchTerm = (search) => {
+    console.log(`updateSearchTerm ran`);
+
+    this.setState({
+      searchTerm: search
+    })
   }
 
   updateResults = (results) => {
@@ -33,6 +42,7 @@ class App extends React.Component {
     })
   }
 
+
   toggleLoading = (loading) => {
     console.log(`toggleLoading ran`);
 
@@ -46,14 +56,14 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.results);
-    console.log(this.state.loading);
 
     const contextValue = {
       results: this.state.results,
       loading: this.state.loading,
+      searchTerm: this.state.searchTerm,
       updateResults: this.updateResults,
-      toggleLoading: this.toggleLoading
+      toggleLoading: this.toggleLoading,
+      updateSearchTerm: this.updateSearchTerm
     }
 
     return (

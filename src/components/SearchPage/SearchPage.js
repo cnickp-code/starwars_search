@@ -6,10 +6,11 @@ class SearchPage extends React.Component {
     render() {
         return (
             <>
-                <SearchForm />
+                <SearchForm {...this.props} />
                 <ResultsList />
             </>
         )
+
     }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import SearchContext from '../../SearchContext';
 
 function handlePagination(url, options, results, resolve, reject) {
@@ -36,6 +37,7 @@ class SearchForm extends React.Component {
     handleSearchSubmit(event, callback) {
         event.preventDefault();
 
+        this.props.history.push('/search');
         this.context.toggleLoading(true);
 
         const baseUrl = 'https://swapi-thinkful.herokuapp.com/api/people';
@@ -57,7 +59,6 @@ class SearchForm extends React.Component {
     render() {
 
 
-
         return (
             <SearchContext.Consumer>
                 {(context) => (
@@ -67,7 +68,7 @@ class SearchForm extends React.Component {
                             <form id="search-form" onSubmit={e => this.handleSearchSubmit(e, context.updateResults)}>
                                 <div className="search-text">Enter Character Name</div>
                                 <div className="search-container">
-                                    <input type="text" className="search-input" placeholder="E.g. Skywalker" ref={this.searchInput}/>
+                                    <input type="text" className="search-input" placeholder="E.g. Skywalker" value={this.context.searchTerm} ref={this.searchInput}/>
                                     <button type="submit" className="search-submit-button">Search</button>
                                 </div>
                             </form>
