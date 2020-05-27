@@ -39,6 +39,9 @@ class SearchForm extends React.Component {
 
         this.props.history.push('/search');
         this.context.toggleLoading(true);
+        this.context.updateSearchTerm(this.searchInput.current.value);
+
+        console.log(this.searchInput.current.value);
 
         const baseUrl = 'https://swapi-thinkful.herokuapp.com/api/people';
         const options = {
@@ -68,7 +71,7 @@ class SearchForm extends React.Component {
                             <form id="search-form" onSubmit={e => this.handleSearchSubmit(e, context.updateResults)}>
                                 <div className="search-text">Enter Character Name</div>
                                 <div className="search-container">
-                                    <input type="text" className="search-input" placeholder="E.g. Skywalker" value={this.context.searchTerm} ref={this.searchInput}/>
+                                    <input type="text" className="search-input" placeholder="E.g. Skywalker" ref={this.searchInput}/>
                                     <button type="submit" className="search-submit-button">Search</button>
                                 </div>
                             </form>
