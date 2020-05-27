@@ -128,3 +128,17 @@ header {
     margin-right: 0;
     font-weight: bold;
 }
+
+.info-name {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.back-button {
+  border: solid 1px black;
+  padding: 3px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}

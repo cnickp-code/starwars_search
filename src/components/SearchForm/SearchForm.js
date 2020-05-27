@@ -26,6 +26,7 @@ function handlePagination(url, options, results, resolve, reject) {
 
 class SearchForm extends React.Component {
     static contextType = SearchContext;
+    
 
     constructor(props) {
         super(props);
@@ -54,6 +55,9 @@ class SearchForm extends React.Component {
     }
 
     render() {
+
+
+
         return (
             <SearchContext.Consumer>
                 {(context) => (

@@ -17,7 +17,7 @@ class Routes extends React.Component {
                     component={SearchPage}
                 />
                 <Route
-                    path='/person/:infoId'
+                    path='/info/:infoId'
                     render={(routeProps) => {
                         return (
                             <InfoPage infoId={routeProps.match.params.infoId} />

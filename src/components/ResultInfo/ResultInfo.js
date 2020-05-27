@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import SearchContext from '../../SearchContext';
 
 
@@ -12,23 +13,25 @@ class ResultInfo extends React.Component {
 
         return (
             <>
+                <h2 className='info-name'>{info.name}</h2>
                 <div className="info-container">
+                    
                     <div className="left-info-container">
-                        <div className="info-text">Height: </div>
-                        <div className="info-text">Mass: </div>
-                        <div className="info-text">Gender: </div>
-                        <div className="info-text">Birth Year: </div>
+                        <div className="info-text">Height: {info.height}cm </div>
+                        <div className="info-text">Mass: {info.mass}kg</div>
+                        <div className="info-text">Gender: {info.gender}</div>
+                        <div className="info-text">Birth Year: {info.birth_year}</div>
                     </div>
 
                     <div className="right-info-container">
-                        <div className="info-text">Skin Color: </div>
-                        <div className="info-text">Eye Color: </div>
-                        <div className="info-text">Hair Color: </div>
+                        <div className="info-text">Skin Color: {info.skin_color}</div>
+                        <div className="info-text">Eye Color: {info.eye_color}</div>
+                        <div className="info-text">Hair Color: {info.hair_color}</div>
                     </div>
                 </div>
 
                 <div className="button-container">
-                    <button className="back-button">Go Back</button>
+                    <NavLink to='/' className="back-button">Go Back</NavLink>
                 </div>
             </>
         )

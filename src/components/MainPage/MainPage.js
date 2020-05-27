@@ -7,7 +7,7 @@ class MainPage extends React.Component {
         return (
             <>
                 <SearchForm />
-                <ResultsList />
+                {/* <ResultsList /> */}
             </>
         )
     }
