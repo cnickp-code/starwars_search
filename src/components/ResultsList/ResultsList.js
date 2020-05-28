@@ -11,7 +11,7 @@ class ResultsList extends React.Component {
         console.log(`render ResultsList`);
         let pageContent = '';
 
-        if(this.context.results.length === 0) {
+        if(this.context.results.length === 0 && !this.context.loading) {
             return <ErrorPage />
         }
 

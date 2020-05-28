@@ -1,5 +1,7 @@
 import React from 'react';
 import SearchContext from '../../SearchContext';
+import leftLogo from '../../images/dark_side.png';
+import rightLogo from '../../images/jedi.jpg';
 
 function handlePagination(url, options, results, resolve, reject) {
     fetch(url, options)
@@ -73,7 +75,9 @@ class SearchForm extends React.Component {
             <SearchContext.Consumer>
                 {(context) => (
                     <section className="search-container"> 
-                        <div className="banner-left">logo 1</div>
+                        <div className="banner-left">
+                            {/* <img src={leftLogo} alt="left logo" className="logo" /> */}
+                        </div>
                         <div className="middle-wrapper">
                             <form id="search-form" onSubmit={e => this.handleSearchSubmit(e, context.updateResults)}>
                                 <div className="search-text">MTFBWU!</div>
@@ -92,7 +96,9 @@ class SearchForm extends React.Component {
                                 <option value="species">Species</option>
                             </select>
                         </div>
-                        <div className="banner-right">logo 2</div>
+                        <div className="banner-right">
+                            {/* <img src={rightLogo} alt="left logo" className="logo" /> */}
+                        </div>
                     </section>
                 )}
             </SearchContext.Consumer>

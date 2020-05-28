@@ -2,8 +2,24 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background-color: black;
 }
 
+main {
+  color: rgb(122, 122, 122);
+}
+
+input {
+  background-color: white;
+}
+
+option {
+  background-color: white;
+}
+
+select {
+  background-color: white;
+}
 
 header {
   display: flex;
@@ -22,35 +38,48 @@ header {
   margin-bottom: 0.67em;
   font-weight: bold;
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .search-container {
   display: flex;
   flex-direction: row;
   width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .banner-left {
   width: 20%;
-  border: 1px solid black;
+  border: 1px solid rgb(122, 122, 122);
+  
+}
+
+.logo {
+  width: 75px;
+  width: 100px;
+  object-fit: contain;
 }
 
 .banner-right {
   width: 20%;
-  border: 1px solid black;
+ 
+  border: 1px solid rgb(122, 122, 122);
 }
 
 .middle-wrapper {
   width: 60%;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid rgb(122, 122, 122);
+  border-bottom: 1px solid rgb(122, 122, 122);
 }
 
 .search-text {
   padding: 3px;
+  text-align: center;
+  color: white;
 }
 
 .search-input {
@@ -59,6 +88,7 @@ header {
 }
 
 .search-submit-button {
+  background-color: white;
   margin-top: 5px;
 }
 
@@ -69,32 +99,42 @@ header {
 
 #search-form {
   padding: 5px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(122, 122, 122);
 }
 
 #search-type {
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .results-container {
-  border: 1px solid black;
-  min-height: fit-content;
+  border: 1px solid rgb(122, 122, 122);
+  /* min-height: fit-content; */
   height: 100%;
   overflow: scroll;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 80vh
 }
 
 .info-text {
   margin-top: 2px;
   margin-bottom: 2px;
+  color: white;
 }
 
 .info-container {
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
+  border: 1px solid rgb(122, 122, 122);
   padding: 3px;
   margin-bottom: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .left-info-container {
@@ -106,10 +146,12 @@ header {
 }
 
 .name-list-container {
-  border: 1px solid black;
+  border: 1px solid rgb(122, 122, 122);
+  background-color: black;
+  border-radius: 15px;
   padding: 3px;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .button-container {
@@ -129,18 +171,28 @@ header {
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
+    background-color: black(122, 122, 122);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.result-header:hover {
+  background-color: white;
+  color: black;
 }
 
 .info-name {
   margin-top: 5px;
   margin-bottom: 5px;
   text-align: center;
+  color: white;
 }
 
 .back-button {
-  border: solid 1px black;
+  border: solid 1px rgb(122, 122, 122);
   padding: 3px;
   text-decoration: none;
-  color: black;
+  color: white;
   cursor: pointer;
 }
