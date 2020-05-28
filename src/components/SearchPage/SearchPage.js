@@ -4,10 +4,12 @@ import ResultsList from '../ResultsList/ResultsList';
 
 class SearchPage extends React.Component {
     render() {
+        console.log(this.props);
+
         return (
             <>
-                <SearchForm {...this.props} />
-                <ResultsList />
+                <SearchForm {...this.props}  />
+                <ResultsList {...this.props} />
             </>
         )
 

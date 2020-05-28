@@ -12,15 +12,12 @@ class ResultsList extends React.Component {
         let pageContent = '';
 
         if(this.context.results.length === 0) {
-            
+
         }
 
         const results = this.context.results.map(result => {
-            return <Result key={result.id} id={result.id} 
-                    name={result.name} mass={result.mass} 
-                    height={result.height} birthYear={result.birth_year}
-                    skinColor={result.skin_color} hairColor={result.hair_color} 
-                    eyeColor={result.eye_color} />
+            return <Result key={result.id} id={result.id} title={result.title}
+                    name={result.name} />
 
 
         })

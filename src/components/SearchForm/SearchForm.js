@@ -42,13 +42,13 @@ class SearchForm extends React.Component {
     handleSearchSubmit(event, callback) {
         event.preventDefault();
 
-        this.props.history.push('/search');
-        this.context.toggleLoading(true);
-        this.context.updateSearchTerm(this.searchInput.current.value);
-        
         const categoryTerm = this.context.categoryTerm;
         const searchTerm = this.searchInput.current.value;
 
+        this.props.history.push(`/${categoryTerm}`);
+        this.context.toggleLoading(true);
+        this.context.updateSearchTerm(this.searchInput.current.value);
+        
         const baseUrl = `https://swapi-thinkful.herokuapp.com/api/${categoryTerm}/?search=${searchTerm}`;
         const options = {
             method: 'GET',
@@ -56,6 +56,7 @@ class SearchForm extends React.Component {
                 'content-type': 'application/json'
             }
         }
+        console.log(baseUrl);
 
         new Promise((resolve, reject) => {
             handlePagination(baseUrl, options, [], resolve, reject);
@@ -75,7 +76,7 @@ class SearchForm extends React.Component {
                         <div className="banner-left">logo 1</div>
                         <div className="middle-wrapper">
                             <form id="search-form" onSubmit={e => this.handleSearchSubmit(e, context.updateResults)}>
-                                <div className="search-text">Enter Character Name</div>
+                                <div className="search-text">MTFBWU!</div>
                                 <div className="search-container">
                                     <input type="text" className="search-input" placeholder="E.g. Skywalker" ref={this.searchInput}/>
                                     <button type="submit" className="search-submit-button">Search</button>
@@ -85,7 +86,7 @@ class SearchForm extends React.Component {
                             <select name="search-type" defaultValue='people' id="search-type" onChange={e => this.handleCategoryChange(e.target.value)}>
                                 <option value="people">People</option>
                                 <option value="planets">Planets</option>
-                                <option value="starships">Spaceships</option>
+                                <option value="starships">Starships</option>
                                 <option value="vehicles">Vehicles</option>
                                 <option value="films">Films</option>
                                 <option value="species">Species</option>

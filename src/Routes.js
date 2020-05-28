@@ -12,10 +12,6 @@ class Routes extends React.Component {
                     exact path='/'
                     component={MainPage}
                 />
-                <Route 
-                    path='/search'
-                    component={SearchPage}
-                />
                 <Route
                     path='/info/:infoId'
                     render={(routeProps) => {
@@ -24,6 +20,11 @@ class Routes extends React.Component {
                         )
                     }}
                 />
+                <Route 
+                    path='/:category'
+                    component={SearchPage}
+                />
+
             </Switch>
         )
     }

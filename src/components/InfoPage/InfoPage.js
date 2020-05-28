@@ -5,6 +5,7 @@ import ResultInfo from '../ResultInfo/ResultInfo';
 
 class InfoPage extends React.Component {
     render() {
+        console.log('InfoPage reached');
         return (
             <>
                 <SearchForm />
