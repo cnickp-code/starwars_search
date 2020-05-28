@@ -9,6 +9,11 @@ class ResultsList extends React.Component {
 
     render() {
         console.log(`render ResultsList`);
+        let pageContent = '';
+
+        if(this.context.results.length === 0) {
+            
+        }
 
         const results = this.context.results.map(result => {
             return <Result key={result.id} id={result.id} 
@@ -21,8 +26,6 @@ class ResultsList extends React.Component {
         })
 
         const loading = <LoadingScreen />
-
-        let pageContent = '';
 
         if(this.context.loading) {
             pageContent = loading;

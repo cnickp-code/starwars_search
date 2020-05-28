@@ -11,7 +11,8 @@ class App extends React.Component {
     this.state = {
       results: [],
       loading: false,
-      searchTerm: ''
+      searchTerm: '',
+      categoryTerm: 'people'
     }
   }
 
@@ -20,6 +21,14 @@ class App extends React.Component {
 
     this.setState({
       searchTerm: search
+    })
+  }
+
+  updateCategoryTerm = (search) => {
+    console.log(`updateSearchTerm ran`);
+
+    this.setState({
+      categoryTerm: search
     })
   }
 
@@ -61,10 +70,14 @@ class App extends React.Component {
       results: this.state.results,
       loading: this.state.loading,
       searchTerm: this.state.searchTerm,
+      categoryTerm: this.state.categoryTerm,
       updateResults: this.updateResults,
       toggleLoading: this.toggleLoading,
-      updateSearchTerm: this.updateSearchTerm
+      updateSearchTerm: this.updateSearchTerm,
+      updateCategoryTerm: this.updateCategoryTerm
     }
+
+    console.log(this.state.categoryTerm);
 
     return (
       <main className="App">

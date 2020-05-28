@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import SearchContext from '../../SearchContext';
 
 function handlePagination(url, options, results, resolve, reject) {
@@ -34,16 +33,23 @@ class SearchForm extends React.Component {
         this.searchInput = React.createRef();
     }
 
+    handleCategoryChange(category) {
+        console.log(`handleCategoryChange ran`);
+        console.log(category);
+        this.context.updateCategoryTerm(category);
+    }
+
     handleSearchSubmit(event, callback) {
         event.preventDefault();
 
         this.props.history.push('/search');
         this.context.toggleLoading(true);
         this.context.updateSearchTerm(this.searchInput.current.value);
+        
+        const categoryTerm = this.context.categoryTerm;
+        const searchTerm = this.searchInput.current.value;
 
-        console.log(this.searchInput.current.value);
-
-        const baseUrl = 'https://swapi-thinkful.herokuapp.com/api/people';
+        const baseUrl = `https://swapi-thinkful.herokuapp.com/api/${categoryTerm}/?search=${searchTerm}`;
         const options = {
             method: 'GET',
             headers: {
@@ -73,8 +79,17 @@ class SearchForm extends React.Component {
                                 <div className="search-container">
                                     <input type="text" className="search-input" placeholder="E.g. Skywalker" ref={this.searchInput}/>
                                     <button type="submit" className="search-submit-button">Search</button>
+
                                 </div>
                             </form>
+                            <select name="search-type" defaultValue='people' id="search-type" onChange={e => this.handleCategoryChange(e.target.value)}>
+                                <option value="people">People</option>
+                                <option value="planets">Planets</option>
+                                <option value="starships">Spaceships</option>
+                                <option value="vehicles">Vehicles</option>
+                                <option value="films">Films</option>
+                                <option value="species">Species</option>
+                            </select>
                         </div>
                         <div className="banner-right">logo 2</div>
                     </section>
