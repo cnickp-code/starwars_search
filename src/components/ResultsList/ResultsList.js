@@ -1,6 +1,6 @@
 import React from 'react';
 import Result from '../Result/Result';
-import ResultInfo from '../ResultInfo/ResultInfo';
+import ErrorPage from '../ErrorPage/ErrorPage';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import SearchContext from '../../SearchContext';
 
@@ -12,7 +12,7 @@ class ResultsList extends React.Component {
         let pageContent = '';
 
         if(this.context.results.length === 0) {
-
+            return <ErrorPage />
         }
 
         const results = this.context.results.map(result => {

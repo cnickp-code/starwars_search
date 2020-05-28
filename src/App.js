@@ -81,6 +81,7 @@ class App extends React.Component {
 
     return (
       <main className="App">
+        
         <header>
             <NavLink to='/' className="header-link">Star Wars Search</NavLink>
         </header>

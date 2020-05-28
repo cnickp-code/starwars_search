@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import SearchError from './components/SearchError/SearchError';
 
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <SearchError>
+      <App />
+    </SearchError>
   </BrowserRouter>,
   document.getElementById('root')
 );
