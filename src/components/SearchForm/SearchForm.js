@@ -2,6 +2,7 @@ import React from 'react';
 import SearchContext from '../../SearchContext';
 import leftLogo from '../../images/dark_side.png';
 import rightLogo from '../../images/jedi.jpg';
+import ValidationError from '../ValidationError/ValidationError';
 
 function handlePagination(url, options, results, resolve, reject) {
     fetch(url, options)
@@ -28,7 +29,6 @@ function handlePagination(url, options, results, resolve, reject) {
 
 class SearchForm extends React.Component {
     static contextType = SearchContext;
-    
 
     constructor(props) {
         super(props);
@@ -41,15 +41,28 @@ class SearchForm extends React.Component {
         this.context.updateCategoryTerm(category);
     }
 
+    validateSearch() {
+        const searchTerm = this.context.searchTerm;
+
+        if(searchTerm.length < 3) {
+            return "Search must be at least 3 characters long"
+        }
+    }
+
+    updateSearch(search) {
+        this.context.updateSearchTerm(search, true);
+    }
+
+
     handleSearchSubmit(event, callback) {
         event.preventDefault();
 
         const categoryTerm = this.context.categoryTerm;
-        const searchTerm = this.searchInput.current.value;
+        const searchTerm = this.context.searchTerm;
 
         this.props.history.push(`/${categoryTerm}`);
         this.context.toggleLoading(true);
-        this.context.updateSearchTerm(this.searchInput.current.value);
+        this.context.updateSearchTerm(searchTerm, false);
         
         const baseUrl = `https://swapi-thinkful.herokuapp.com/api/${categoryTerm}/?search=${searchTerm}`;
         const options = {
@@ -69,7 +82,7 @@ class SearchForm extends React.Component {
     }
 
     render() {
-
+        const searchError = this.validateSearch();
 
         return (
             <SearchContext.Consumer>
@@ -82,10 +95,11 @@ class SearchForm extends React.Component {
                             <form id="search-form" onSubmit={e => this.handleSearchSubmit(e, context.updateResults)}>
                                 <div className="search-text">MTFBWU!</div>
                                 <div className="search-container">
-                                    <input type="text" className="search-input" placeholder="E.g. Skywalker" ref={this.searchInput}/>
+                                    <input type="text" className="search-input" placeholder="E.g. Skywalker" ref={this.searchInput} onChange={e => this.updateSearch(e.target.value)}/>
                                     <button type="submit" className="search-submit-button">Search</button>
-
+                                    
                                 </div>
+                                {this.context.searchTouched && <ValidationError message={searchError} />}
                             </form>
                             <select name="search-type" defaultValue='people' id="search-type" onChange={e => this.handleCategoryChange(e.target.value)}>
                                 <option value="people">People</option>

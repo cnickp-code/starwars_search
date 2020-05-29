@@ -12,15 +12,18 @@ class App extends React.Component {
       results: [],
       loading: false,
       searchTerm: '',
+      searchTouched: false,
       categoryTerm: 'people'
     }
   }
 
-  updateSearchTerm = (search) => {
+
+  updateSearchTerm = (search, touched) => {
     console.log(`updateSearchTerm ran`);
 
     this.setState({
-      searchTerm: search
+      searchTerm: search,
+      searchTouched: touched
     })
   }
 
@@ -70,6 +73,7 @@ class App extends React.Component {
       results: this.state.results,
       loading: this.state.loading,
       searchTerm: this.state.searchTerm,
+      searchTouched: this.state.searchTouched,
       categoryTerm: this.state.categoryTerm,
       updateResults: this.updateResults,
       toggleLoading: this.toggleLoading,
@@ -81,7 +85,7 @@ class App extends React.Component {
 
     return (
       <main className="App">
-        
+
         <header>
             <NavLink to='/' className="header-link">Star Wars Search</NavLink>
         </header>

@@ -4,6 +4,7 @@ const SearchContext = React.createContext({
     result: [],
     loading: false,
     searchTerm: '',
+    searchTouched: false,
     categoryTerm: '',
     updateResults: () => {},
     toggleLoading: () => {},
